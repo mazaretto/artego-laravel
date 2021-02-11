@@ -109,6 +109,10 @@ const newsCabinetSlider = new Swiper('.news__list', {
     el: '.swiper-pagination',
   },
   breakpoints: {
+    320: {
+      slidesPerView: 1,
+      centeredSlides: true,
+    },
     768: {
       slidesPerView: 1,
       centeredSlides: true,
@@ -390,6 +394,24 @@ $(document).ready(function() {
 
 /***/ }),
 
+/***/ "./dev/modules/sidebar/index.js":
+/*!**************************************!*\
+  !*** ./dev/modules/sidebar/index.js ***!
+  \**************************************/
+/*! unknown exports (runtime-defined) */
+/*! runtime requirements:  */
+/***/ (() => {
+
+$('document').ready(function(){
+  $('#adminSidebarHamburger').on('click', function(e){
+    e.preventDefault();
+    $('.admin__nav__menu').toggleClass('show');
+  });
+});
+
+
+/***/ }),
+
 /***/ "./dev/modules/topslider/index.js":
 /*!****************************************!*\
   !*** ./dev/modules/topslider/index.js ***!
@@ -444,6 +466,9 @@ var toursSlider = new Swiper('.tours__slider', {
   \********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, top-level-this-exports, __webpack_exports__ */
+/*! CommonJS bailout: this is used directly at 40:46-50 */
+/*! CommonJS bailout: module.exports is used directly at 18:43-57 */
+/*! CommonJS bailout: module.exports is used directly at 27:2-16 */
 /***/ (function(module, exports) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -11091,5 +11116,6 @@ return jQuery;
 /******/ 	__webpack_require__("./dev/modules/footer/index.js");
 /******/ 	__webpack_require__("./dev/modules/admin/addevent/index.js");
 /******/ 	__webpack_require__("./dev/modules/cabinet/news/index.js");
+/******/ 	__webpack_require__("./dev/modules/sidebar/index.js");
 /******/ })()
 ;

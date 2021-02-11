@@ -39,7 +39,7 @@
           <div class="nav__left__link" id="navMenuLink"><span class="bars"><i class="fas fa-bars"></i></span>
             <p>Меню</p>
           </div>
-          <form method="POST" action="">
+          <form class="nav__search__form" method="POST" action="">
             <input type="text" placeholder="Поиск"/>
             <button type="submit"><i class="fas fa-search"></i></button>
           </form>
@@ -47,6 +47,7 @@
         <div class="nav__middle"><a class="nav__logo" href=""><img src="img/logo-top-colored.svg" alt=""/></a></div>
         <div class="nav__right"><a class="nav__phone" href="" tel="+74959888825"><img src="img/icons/icon-nav-phone.svg" alt=""/></a>
           <p>+7 (495) 988-88-25</p><a class="nav__ordercall" href="">Заказать звонок</a>
+          <div class="nav__login"><a href="">Войти</a></div>
         </div>
         <div class="nav__menu">
           <ul>
@@ -59,6 +60,10 @@
             <li><a href=""><img src="img/icons/icon-nav-contacts.svg"/> Контакты</a></li>
           </ul><a class="nav__logo" href="/"><img src="img/icons/logo-nav-bottom.svg" alt=""/></a>
         </div>
+        <form class="nav__search__form nav__search__form--mobile" method="POST" action="">
+          <input type="text" placeholder="Поиск"/>
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
       </div>
     </nav>
     <main>
@@ -353,10 +358,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/additional-methods.min.js"></script>
-    <script src="js/bundle.js"></script>
+    <script src="../js/jquery.waypoints.min.js"></script>
+    <script src="../js/jquery.fancybox.min.js"></script>
+    <script src="../js/jquery.validate.min.js"></script>
+    <script src="../js/additional-methods.min.js"></script>
+    <script src="../js/bundle.js"></script>
   </body>
 </html>
