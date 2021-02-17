@@ -433,6 +433,152 @@ const topSlider = new Swiper('.topslider__slider', {
 }
 );
 
+$('.topslider__btn--want').on('click', function(evt){
+  evt.preventDefault();
+  $('.top__slider__modal').addClass('show');
+});
+
+$('.topslider__btn--wantpro').on('click', function(evt){
+  evt.preventDefault();
+  $('.authorisation__modal').addClass('show');
+});
+
+$('.topslider__calendar__register').on('click', function(evt){
+  evt.preventDefault();
+  $('.modal').removeClass('show');
+  $('.calendar__register__modal').addClass('show');
+});
+
+$('.calendar__register__pay').on('click', function(evt){
+  evt.preventDefault();
+  $('.modal').removeClass('show');
+  $('.calendar__pay__modal').addClass('show');
+});
+
+$('.modal__about__link').on('click', function(evt){
+  evt.preventDefault();
+  $('.modal').removeClass('show');
+  $('.membership__modal').addClass('show');
+});
+
+$('.modal__resetpassword').on('click', function(evt){
+  evt.preventDefault();
+  $('.modal').removeClass('show');
+  $('.resetpassword__modal').addClass('show');
+});
+
+$('.modal__club').on('click', function(evt){
+  evt.preventDefault();
+  $('.modal').removeClass('show');
+  $('.enterclub__modal').addClass('show');
+});
+
+$('.modal__contacts').on('click', function(evt){
+  evt.preventDefault();
+  $('.modal').removeClass('show');
+  $('.contacts__modal').addClass('show');
+});
+
+$('.modal__help').on('click', function(evt){
+  evt.preventDefault();
+  $('.modal').removeClass('show');
+  $('.help__modal').addClass('show');
+});
+
+$('.modal__gift').on('click', function(evt){
+  evt.preventDefault();
+  $('.modal').removeClass('show');
+  $('.gift__modal').addClass('show');
+});
+
+$('.modal__abonement').on('click', function(evt){
+  evt.preventDefault();
+  $('.modal').removeClass('show');
+  $('.abonement__modal').addClass('show');
+});
+
+$('.modal__conditions').on('click', function(evt){
+  evt.preventDefault();
+  $('.modal').removeClass('show');
+  $('.conditions__modal').addClass('show');
+});
+
+$('.modal__history').on('click', function(evt){
+  evt.preventDefault();
+  $('.modal').removeClass('show');
+  $('.history__modal').addClass('show');
+});
+
+$('.modal__wine').on('click', function(evt){
+  evt.preventDefault();
+  $('.modal').removeClass('show');
+  $('.wine__modal').addClass('show');
+});
+
+$(document).on('keydown', function(evt) {
+  if ($('.modal').hasClass('show') && evt.key === 'Escape') {
+    $('.modal').removeClass('show');
+  }
+});
+
+
+// $('.topslider__btn--want').fancybox({
+//     margin: 0,
+// 		padding: 20,
+// 		maxWidth: 800,
+// 		autoScale: true,
+// 		transitionIn: 'none',
+// 		transitionOut: 'none',
+// 		type: 'inline',
+// 		helpers: {
+// 			overlay: {
+// 				locked: false
+// 			}
+// 		}
+// });
+
+// $('.topslider__calendar__register').fancybox({
+//   margin: 0,
+//   padding: 20,
+//   maxWidth: 800,
+//   autoScale: true,
+//   transitionIn: 'none',
+//   transitionOut: 'none',
+//   type: 'inline',
+//   helpers: {
+//     overlay: {
+//       locked: false
+//     }
+//   }
+// });
+
+
+
+const sliderCalendar = new Swiper('.topslider__calendar', {
+  // autoplay: {
+  //   delay: 10000,
+  // },
+  slidesPerView: 3,
+  centeredSlides: true,
+  pagination: {
+    el: '.swiper-pagination',
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+    centeredSlides: true,
+    },
+    768: {
+      slidesPerView: 1,
+      centeredSlides: true,
+    },
+    1024: {
+      slidesPerView: 3,
+      centeredSlides: true,
+    }
+  }
+})
+
 
 /***/ }),
 
