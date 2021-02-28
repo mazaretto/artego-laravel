@@ -279,6 +279,100 @@ $(document).ready(function(){
 
 /***/ }),
 
+/***/ "./dev/modules/modal/index.js":
+/*!************************************!*\
+  !*** ./dev/modules/modal/index.js ***!
+  \************************************/
+/*! unknown exports (runtime-defined) */
+/*! runtime requirements:  */
+/***/ (() => {
+
+// const eventsSlider = new Swiper('.modal__events__slider .swiper-container', {
+//   direction: 'horizontal',
+//   slidesPerView: 1,
+//   autoplay: {
+//     delay: 1000,
+//   },
+//   // centeredSlides: true,
+//   // effect: 'fade',
+//   // fadeEffect: {
+//   //   crossFade: true
+//   // },
+//   navigation: {
+//     nextEl: `.modalevents__swiper-next`,
+//     prevEl: `.modalevents__swiper-prev`,
+//   },
+//   // slidesPerView: 1,
+//   // centeredSlides: true,
+//   // effect: `fade`,
+//   // fadeEffect: {
+//   //   crossFade: true
+//   // },
+//
+// });
+
+$(document).ready(function () {
+  const eventSlider = new Swiper(`.modal__events__slider`, {
+    observer: true,
+    observeParents: true,
+    slidesPerView: 1,
+    effect: `fade`,
+    fadeEffect: {
+      crossFade: true
+    },
+    navigation: {
+      nextEl: '.modalevents__swiper-next',
+      prevEl: '.modalevents__swiper-prev',
+    },
+  });
+
+  const calendarSlider = new Swiper(`.topslider__calendar`, {
+    observer: true,
+    observeParents: true,
+    slidesPerView: 1,
+    centeredSlides: true,
+    effect: `fade`,
+    fadeEffect: {
+      crossFade: true
+    },
+    pagination: {
+      el: `.swiper-pagination`,
+    }
+  });
+
+  let slidersCount = $(`.modal__events__slider .swiper-slide`).length;
+  const modalEventsTotal = $(`#modalevents__total`);
+  modalEventsTotal.text(slidersCount);
+
+  $(`.modalevents__swiper-next`).on(`click`, function () {
+    let modalEventsIndex = eventSlider.activeIndex;
+    $(`#modalevents__current`).text(modalEventsIndex + 1);
+  });
+  $(`.modalevents__swiper-prev`).on(`click`, function () {
+    let modalEventsIndex = eventSlider.activeIndex;
+    $(`#modalevents__current`).text(modalEventsIndex + 1);
+  });
+});
+
+
+// $(document).ready(function () {
+//   let slidersCount = $(`.modal__events__slider .swiper-slide`).length;
+//   const modalEventsTotal = $(`#modalevents__total`);
+//   modalEventsTotal.text(slidersCount);
+//
+//   $(`.modalevents__swiper-next`).on(`click`, function () {
+//     let modalEventsIndex = eventsSlider.activeIndex;
+//     $(`#modalevents__current`).text(modalEventsIndex + 1);
+//   });
+//   $(`.modalevents__swiper-prev`).on(`click`, function () {
+//     let modalEventsIndex = eventsSlider.activeIndex;
+//     $(`#modalevents__current`).text(modalEventsIndex + 1);
+//   });
+// });
+
+
+/***/ }),
+
 /***/ "./dev/modules/nav/index.js":
 /*!**********************************!*\
   !*** ./dev/modules/nav/index.js ***!
@@ -374,7 +468,8 @@ const possibilitiesSlider = new Swiper('.possibilities__slider', {
   fadeEffect: {
     crossFade: true
   },
-})
+});
+
 
 $(document).ready(function() {
   let slidersCount = $('.possibilities__slider .swiper-slide').length;
@@ -389,7 +484,8 @@ $(document).ready(function() {
     let possibilitiesIndex = possibilitiesSlider.activeIndex;
     $('#possibilities__current').text(possibilitiesIndex+1);
   });
-})
+});
+
 
 
 /***/ }),
@@ -420,107 +516,126 @@ $('document').ready(function(){
 /*! runtime requirements:  */
 /***/ (() => {
 
-const topSlider = new Swiper('.topslider__slider', {
-  direction: 'horizontal',
+const topSlider = new Swiper(`.topslider__slider`, {
+  direction: `horizontal`,
   // autoplay: {
   //   delay: 10000,
   // },
   slidesPerView: 1,
   centeredSlides: true,
   pagination: {
-    el: '.swiper-pagination',
-  }
+    el: `.swiper-pagination`,
+  },
+  effect: `fade`,
+  fadeEffect: {
+    crossFade: true
+  },
 }
 );
 
-$('.topslider__btn--want').on('click', function(evt){
+$(`.topslider__btn--want`).on(`click`, function (evt) {
   evt.preventDefault();
-  $('.top__slider__modal').addClass('show');
+  $(`.top__slider__modal`).addClass(`show`);
 });
 
-$('.topslider__btn--wantpro').on('click', function(evt){
+$(`.topslider__btn--wantpro`).on(`click`, function (evt) {
   evt.preventDefault();
-  $('.authorisation__modal').addClass('show');
+  $(`.authorisation__modal`).addClass(`show`);
 });
 
-$('.topslider__calendar__register').on('click', function(evt){
+$(`.topslider__calendar__register`).on(`click`, function (evt) {
   evt.preventDefault();
-  $('.modal').removeClass('show');
-  $('.calendar__register__modal').addClass('show');
+  $(`.modal`).removeClass(`show`);
+  $(`.calendar__register__modal`).addClass(`show`);
 });
 
-$('.calendar__register__pay').on('click', function(evt){
+$(`.calendar__register__pay`).on(`click`, function (evt) {
   evt.preventDefault();
-  $('.modal').removeClass('show');
-  $('.calendar__pay__modal').addClass('show');
+  $(`.modal`).removeClass(`show`);
+  $(`.calendar__pay__modal`).addClass(`show`);
 });
 
-$('.modal__about__link').on('click', function(evt){
+$(`.modal__about__link`).on(`click`, function (evt) {
   evt.preventDefault();
-  $('.modal').removeClass('show');
-  $('.membership__modal').addClass('show');
+  $(`.modal`).removeClass(`show`);
+  $(`.membership__modal`).addClass(`show`);
 });
 
-$('.modal__resetpassword').on('click', function(evt){
+$(`.modal__resetpassword`).on(`click`, function (evt) {
   evt.preventDefault();
-  $('.modal').removeClass('show');
-  $('.resetpassword__modal').addClass('show');
+  $(`.modal`).removeClass(`show`);
+  $(`.resetpassword__modal`).addClass(`show`);
 });
 
-$('.modal__club').on('click', function(evt){
+$(`.modal__club`).on(`click`, function (evt) {
   evt.preventDefault();
-  $('.modal').removeClass('show');
-  $('.enterclub__modal').addClass('show');
+  $(`.modal`).removeClass(`show`);
+  $(`.enterclub__modal`).addClass(`show`);
 });
 
-$('.modal__contacts').on('click', function(evt){
+$(`.modal__events`).on(`click`, function (evt) {
   evt.preventDefault();
-  $('.modal').removeClass('show');
-  $('.contacts__modal').addClass('show');
+  $(`.modal`).removeClass(`show`);
+  $(`.events__modal`).addClass(`show`);
 });
 
-$('.modal__help').on('click', function(evt){
+$(`.modal__contacts`).on(`click`, function (evt) {
   evt.preventDefault();
-  $('.modal').removeClass('show');
-  $('.help__modal').addClass('show');
+  $(`.modal`).removeClass(`show`);
+  $(`.contacts__modal`).addClass(`show`);
 });
 
-$('.modal__gift').on('click', function(evt){
+$(`.modal__help`).on(`click`, function (evt) {
   evt.preventDefault();
-  $('.modal').removeClass('show');
-  $('.gift__modal').addClass('show');
+  $(`.modal`).removeClass(`show`);
+  $(`.help__modal`).addClass(`show`);
 });
 
-$('.modal__abonement').on('click', function(evt){
+$(`.modal__gift`).on(`click`, function (evt) {
   evt.preventDefault();
-  $('.modal').removeClass('show');
-  $('.abonement__modal').addClass('show');
+  $(`.modal`).removeClass(`show`);
+  $(`.gift__modal`).addClass(`show`);
 });
 
-$('.modal__conditions').on('click', function(evt){
+$(`.modal__abonement`).on(`click`, function (evt) {
   evt.preventDefault();
-  $('.modal').removeClass('show');
-  $('.conditions__modal').addClass('show');
+  $(`.modal`).removeClass(`show`);
+  $(`.abonement__modal`).addClass(`show`);
 });
 
-$('.modal__history').on('click', function(evt){
+$(`.modal__conditions`).on(`click`, function (evt) {
   evt.preventDefault();
-  $('.modal').removeClass('show');
-  $('.history__modal').addClass('show');
+  $(`.modal`).removeClass(`show`);
+  $(`.conditions__modal`).addClass(`show`);
 });
 
-$('.modal__wine').on('click', function(evt){
+$(`.modal__history`).on(`click`, function (evt) {
   evt.preventDefault();
-  $('.modal').removeClass('show');
-  $('.wine__modal').addClass('show');
+  $(`.modal`).removeClass(`show`);
+  $(`.history__modal`).addClass(`show`);
 });
 
-$(document).on('keydown', function(evt) {
-  if ($('.modal').hasClass('show') && evt.key === 'Escape') {
-    $('.modal').removeClass('show');
+$(`.modal__wine`).on(`click`, function (evt) {
+  evt.preventDefault();
+  $(`.modal`).removeClass(`show`);
+  $(`.wine__modal`).addClass(`show`);
+});
+
+$(document).on(`keydown`, function (evt) {
+  if ($(`.modal`).hasClass(`show`) && evt.key === `Escape`) {
+    $(`.modal`).removeClass(`show`);
   }
 });
 
+$(`.modal__substrate`).on(`click`, function (evt) {
+  evt.preventDefault();
+  $(`.modal`).removeClass(`show`);
+});
+
+$(`.modal__close`).on(`click`, function (evt) {
+  evt.preventDefault();
+  $(`.modal`).removeClass(`show`);
+});
 
 // $('.topslider__btn--want').fancybox({
 //     margin: 0,
@@ -551,33 +666,6 @@ $(document).on('keydown', function(evt) {
 //     }
 //   }
 // });
-
-
-
-const sliderCalendar = new Swiper('.topslider__calendar', {
-  // autoplay: {
-  //   delay: 10000,
-  // },
-  slidesPerView: 3,
-  centeredSlides: true,
-  pagination: {
-    el: '.swiper-pagination',
-  },
-  breakpoints: {
-    320: {
-      slidesPerView: 1,
-    centeredSlides: true,
-    },
-    768: {
-      slidesPerView: 1,
-      centeredSlides: true,
-    },
-    1024: {
-      slidesPerView: 3,
-      centeredSlides: true,
-    }
-  }
-})
 
 
 /***/ }),
@@ -612,9 +700,6 @@ var toursSlider = new Swiper('.tours__slider', {
   \********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, top-level-this-exports, __webpack_exports__ */
-/*! CommonJS bailout: this is used directly at 40:46-50 */
-/*! CommonJS bailout: module.exports is used directly at 18:43-57 */
-/*! CommonJS bailout: module.exports is used directly at 27:2-16 */
 /***/ (function(module, exports) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -11261,6 +11346,7 @@ return jQuery;
 /******/ 	__webpack_require__("./dev/modules/orderform/index.js");
 /******/ 	__webpack_require__("./dev/modules/footer/index.js");
 /******/ 	__webpack_require__("./dev/modules/admin/addevent/index.js");
+/******/ 	__webpack_require__("./dev/modules/modal/index.js");
 /******/ 	__webpack_require__("./dev/modules/cabinet/news/index.js");
 /******/ 	__webpack_require__("./dev/modules/sidebar/index.js");
 /******/ })()
