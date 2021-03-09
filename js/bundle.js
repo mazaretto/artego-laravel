@@ -321,22 +321,54 @@ $(document).ready(function () {
       crossFade: true
     },
     navigation: {
-      nextEl: '.modalevents__swiper-next',
-      prevEl: '.modalevents__swiper-prev',
+      nextEl: `.modalevents__swiper-next`,
+      prevEl: `.modalevents__swiper-prev`,
     },
   });
 
   const calendarSlider = new Swiper(`.topslider__calendar`, {
     observer: true,
     observeParents: true,
-    slidesPerView: 1,
+    slidesPerView: 3,
     centeredSlides: true,
-    effect: `fade`,
-    fadeEffect: {
-      crossFade: true
-    },
     pagination: {
       el: `.swiper-pagination`,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        effect: `fade`,
+        centeredSlides: true,
+        fadeEffect: {
+          crossFade: true
+        },
+        pagination: false
+      },
+      768: {
+        slidesPerView: 1,
+        effect: `fade`,
+        centeredSlides: true,
+        fadeEffect: {
+          crossFade: true
+        },
+        pagination: false
+      },
+      1024: {
+        slidesPerView: 1,
+        effect: `fade`,
+        centeredSlides: true,
+        fadeEffect: {
+          crossFade: true
+        },
+        pagination: false
+      },
+      1280: {
+        slidesPerView: 3,
+        centeredSlides: true,
+        pagination: {
+          el: `.swiper-pagination`,
+        },
+      }
     }
   });
 
@@ -352,8 +384,17 @@ $(document).ready(function () {
     let modalEventsIndex = eventSlider.activeIndex;
     $(`#modalevents__current`).text(modalEventsIndex + 1);
   });
-});
+  function parallaxScroll() {
+    let scrolled = $(window).scrollTop();
+    $(`.parallax`).css(`top`, ((scrolled * 0.25)) + `px`);
+    $(`.parallax-bottom`).css(`bottom`, ((scrolled / 50) + 50) + `px`);
+    $(`.parallax-top`).css(`top`, ((scrolled / 50) * 2) + `px`);
+  }
 
+  $(window).bind(`scroll`, function () {
+    parallaxScroll();
+  });
+});
 
 // $(document).ready(function () {
 //   let slidersCount = $(`.modal__events__slider .swiper-slide`).length;
@@ -535,106 +576,136 @@ const topSlider = new Swiper(`.topslider__slider`, {
 
 $(`.topslider__btn--want`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.top__slider__modal`).addClass(`show`);
+  $(`.top__slider__modal`).css('display', 'flex');
+  $(`.top__slider__modal`).hide();
+  $(`.top__slider__modal`).fadeIn();
 });
 
 $(`.topslider__btn--wantpro`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.authorisation__modal`).addClass(`show`);
+  $(`.authorisation__modal`).css('display', 'flex');
+  $(`.authorisation__modal`).hide();
+  $(`.authorisation__modal`).fadeIn();
 });
 
 $(`.topslider__calendar__register`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.modal`).removeClass(`show`);
-  $(`.calendar__register__modal`).addClass(`show`);
+  $(`.modal`).fadeOut();
+  $(`.calendar__register__modal`).css('display', 'flex');
+  $(`.calendar__register__modal`).hide();
+  $(`.calendar__register__modal`).fadeIn();
 });
 
 $(`.calendar__register__pay`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.modal`).removeClass(`show`);
-  $(`.calendar__pay__modal`).addClass(`show`);
+  $(`.modal`).fadeOut();
+  $(`.calendar__pay__modal`).css('display', 'flex');
+  $(`.calendar__pay__modal`).hide();
+  $(`.calendar__pay__modal`).fadeIn();
 });
 
 $(`.modal__about__link`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.modal`).removeClass(`show`);
-  $(`.membership__modal`).addClass(`show`);
+  $(`.modal`).fadeOut();
+  $(`.membership__modal`).css('display', 'flex');
+  $(`.membership__modal`).hide();
+  $(`.membership__modal`).fadeIn();
 });
 
 $(`.modal__resetpassword`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.modal`).removeClass(`show`);
-  $(`.resetpassword__modal`).addClass(`show`);
+  $(`.modal`).fadeOut();
+  $(`.resetpassword__modal`).css('display', 'flex');
+  $(`.resetpassword__modal`).hide();
+  $(`.resetpassword__modal`).fadeIn();
 });
 
 $(`.modal__club`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.modal`).removeClass(`show`);
-  $(`.enterclub__modal`).addClass(`show`);
+  $(`.modal`).fadeOut();
+  $(`.enterclub__modal`).css('display', 'flex');
+  $(`.enterclub__modal`).hide();
+  $(`.enterclub__modal`).fadeIn();
 });
 
 $(`.modal__events`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.modal`).removeClass(`show`);
-  $(`.events__modal`).addClass(`show`);
+  $(`.modal`).fadeOut();
+  $(`.events__modal`).css('display', 'flex');
+  $(`.events__modal`).hide();
+  $(`.events__modal`).fadeIn();
 });
 
 $(`.modal__contacts`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.modal`).removeClass(`show`);
-  $(`.contacts__modal`).addClass(`show`);
+  $(`.modal`).fadeOut();
+  $(`.contacts__modal`).css('display', 'flex');
+  $(`.contacts__modal`).hide();
+  $(`.contacts__modal`).fadeIn();
 });
 
 $(`.modal__help`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.modal`).removeClass(`show`);
-  $(`.help__modal`).addClass(`show`);
+  $(`.modal`).fadeOut();
+  $(`.help__modal`).css('display', 'flex');
+  $(`.help__modal`).hide();
+  $(`.help__modal`).fadeIn();
 });
 
 $(`.modal__gift`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.modal`).removeClass(`show`);
-  $(`.gift__modal`).addClass(`show`);
+  $(`.modal`).fadeOut();
+  $(`.gift__modal`).css('display', 'flex');
+  $(`.gift__modal`).hide();
+  $(`.gift__modal`).fadeIn();
 });
 
 $(`.modal__abonement`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.modal`).removeClass(`show`);
-  $(`.abonement__modal`).addClass(`show`);
+  $(`.modal`).fadeOut();
+  $(`.abonement__modal`).css('display', 'flex');
+  $(`.abonement__modal`).hide();
+  $(`.abonement__modal`).fadeIn();
 });
 
 $(`.modal__conditions`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.modal`).removeClass(`show`);
-  $(`.conditions__modal`).addClass(`show`);
+  $(`.modal`).fadeOut();
+  $(`.conditions__modal`).css('display', 'flex');
+  $(`.conditions__modal`).hide();
+  $(`.conditions__modal`).fadeIn();
 });
 
 $(`.modal__history`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.modal`).removeClass(`show`);
-  $(`.history__modal`).addClass(`show`);
+  $(`.modal`).fadeOut();
+  $(`.history__modal`).css('display', 'flex');
+  $(`.history__modal`).hide();
+  $(`.history__modal`).fadeIn();
 });
 
 $(`.modal__wine`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.modal`).removeClass(`show`);
-  $(`.wine__modal`).addClass(`show`);
+  $(`.modal`).fadeOut();
+  $(`.wine__modal`).css('display', 'flex');
+  $(`.wine__modal`).hide();
+  $(`.wine__modal`).fadeIn();
 });
 
 $(document).on(`keydown`, function (evt) {
-  if ($(`.modal`).hasClass(`show`) && evt.key === `Escape`) {
-    $(`.modal`).removeClass(`show`);
+  if (evt.key === `Escape`) {
+    $(`.modal`).fadeOut();
   }
 });
 
 $(`.modal__substrate`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.modal`).removeClass(`show`);
+  $(`.modal`).fadeOut();
 });
 
 $(`.modal__close`).on(`click`, function (evt) {
   evt.preventDefault();
-  $(`.modal`).removeClass(`show`);
+  $(`.modal`).fadeOut();
 });
 
 // $('.topslider__btn--want').fancybox({
@@ -645,6 +716,7 @@ $(`.modal__close`).on(`click`, function (evt) {
 // 		transitionIn: 'none',
 // 		transitionOut: 'none',
 // 		type: 'inline',
+// 		helpers: {
 // 		helpers: {
 // 			overlay: {
 // 				locked: false
@@ -700,6 +772,9 @@ var toursSlider = new Swiper('.tours__slider', {
   \********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, top-level-this-exports, __webpack_exports__ */
+/*! CommonJS bailout: this is used directly at 40:46-50 */
+/*! CommonJS bailout: module.exports is used directly at 18:43-57 */
+/*! CommonJS bailout: module.exports is used directly at 27:2-16 */
 /***/ (function(module, exports) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
